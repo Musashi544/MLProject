@@ -1,8 +1,9 @@
+# This file fetches the data , splits the train and test set and saves it in the artifact folder 
 import os
 import sys
-from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
+from src.exception import CustomException
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
@@ -16,7 +17,7 @@ from src.components.model_trainer import ModelTrainer
 
 # dataclass decorator allows us to define class variable without creating a contructor 
 @dataclass
-# This class contains path for data
+# This class contains path for data which is inputed to DataIngestion class
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
     test_data_path: str=os.path.join('artifacts',"test.csv")
